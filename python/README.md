@@ -39,40 +39,49 @@
 pip install kiss-icp
 ```
 
+If you also want to install all the *(optional)* dependencies, like Open3D for running the visualizer:
+
+```sh
+pip install "kiss-icp[all]"
+```
+
+## Running the system
+
 Next, follow the instructions on how to run the system by typing:
 
 ```sh
 kiss_icp_pipeline --help
 ```
 
-<details>
-<summary>This should print the following help message:</summary>
-
+This should print the following help message:
 ![out](https://user-images.githubusercontent.com/21349875/193282970-25a400aa-ebcd-487a-b839-faa04eeca5b9.png)
-</details>
 
-For advanced instructions on the Python pacakge plase see [this README](python/README.md)
+### Install Python API (developer mode)
 
-## ROS support
-
-<details>
-<summary>ROS 2</summary>
+If you plan to modify the code then you need to setup the dev dependencies, luckilly, the only real
+requirements are a modern C++ compiler and the `pip` package manager, nothing else!, in Ubuntu-based
+sytems this can be done with:
 
 ```sh
-git clone https://github.com/PRBonn/kiss-icp && colcon build
+sudo apt install g++ python3-pip
 ```
-</details>
 
-<details>
-<summary>ROS 1</summary>
+After that you can clone the code and install the python api:
 
 ```sh
-cd ~/catkin_ws/ && git clone https://github.com/PRBonn/kiss-icp && catkin build
+git clone https://github.com/PRBonn/kiss-icp.git
+cd kiss-icp
+pip install --verbose .
 ```
-</details>
 
-For more detailed instructions on the ROS wrappers, please visit this [README](ros/README.md)
+### Install Python API (expert mode)
 
+If you want to have more controll over the build, you should then install `cmake`, ,`ninja`, `tbb`,
+`Eigen`, and `pybind11` as extra dependencies in your system, the ubuntu-way of doing this is:
+
+```sh
+sudo apt install build-essential libeigen3-dev libtbb-dev pybind11-dev ninja-build
+```
 
 ## Citation
 
@@ -99,3 +108,4 @@ We envision KISS-ICP as a comunity-driven project, we love to see how the projec
 <a href="https://github.com/PRBonn/kiss-icp/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=PRBonn/kiss-icp" />
 </a>
+[![Star History Chart](https://api.star-history.com/svg?repos=PRBonn/kiss-icp&type=Date)](https://star-history.com/#PRBonn/kiss-icp&Date)
